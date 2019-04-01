@@ -6,10 +6,10 @@ import * as serviceWorker from "./serviceWorker";
 
 // Store
 import { Provider } from "react-redux";
-import counterStore from "./store/counterStore";
+import store from "./store/createStore";
 
 ReactDOM.render(
-  <Provider store={counterStore}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById("root")

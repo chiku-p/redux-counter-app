@@ -1,5 +1,12 @@
 import { INCREMENT, DECREMENT } from "../actions/counterActions";
-import { initialState } from "../store/counterStore";
+
+const initialState = [
+  { id: 1, value: 0 },
+  { id: 2, value: 0 },
+  { id: 3, value: 0 },
+  { id: 4, value: 0 },
+  { id: 5, value: 0 }
+];
 
 function counterRootReducer(state = initialState, action) {
   switch (action.type) {
