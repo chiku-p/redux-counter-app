@@ -1,15 +1,22 @@
 const express = require("express");
 const compression = require("compression");
 const morgan = require("morgan");
+const path = require("path");
 
 const app = express();
 
 app.use(compression());
-app.use(morgan("dev"));
+
+if (app.get("env") !== "production") {
+  app.use(morgan("dev"));
+} else {
+  app.use(morgan("common"));
+}
+
 app.use(express.static("build"));
 
 app.all("*", (_req, res) => {
-  res.sendFile("index.html");
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 
 const PORT = parseInt(process.env.PORT, 10) || 3000;

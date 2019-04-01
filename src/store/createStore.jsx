@@ -5,5 +5,13 @@ import logger from "redux-logger";
 // Import root reducer
 import rootReducer from "../reducers";
 
-const middlewares = applyMiddleware(thunk, logger);
-export default createStore(rootReducer, middlewares);
+let middlewares;
+if(process.env.NODE_ENV === 'development') {
+  middlewares = applyMiddleware(thunk, logger);
+} else {
+  middlewares = applyMiddleware(thunk);
+}
+
+export default function(initialState = {}) {
+  return createStore(rootReducer, initialState, middlewares);
+}

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import CounterList from "../components/CounterList";
-import { incrementCounter, decrementCounter } from "../actions/counterActions";
+import CounterList from "../../components/CounterList";
+import { incrementCounter, decrementCounter } from "../../actions/counterActions";
 
 class App extends Component {
   render() {
