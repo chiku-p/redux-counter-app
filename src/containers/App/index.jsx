@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import CounterList from "../../components/CounterList";
-import { incrementCounter, decrementCounter } from "../../actions/counterActions";
+import {
+  incrementCounter,
+  decrementCounter
+} from "../../actions/counterActions";
 
 class App extends Component {
   render() {
@@ -16,14 +19,14 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return { counters: state.counters };
+const mapStateToProps = ({ counters }, ownProps) => {
+  return { counters };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    incrementCounter: (id) => dispatch(incrementCounter(id)),
-    decrementCounter: (id) => dispatch(decrementCounter(id))
+    incrementCounter: id => dispatch(incrementCounter(id)),
+    decrementCounter: id => dispatch(decrementCounter(id))
   };
 };
 

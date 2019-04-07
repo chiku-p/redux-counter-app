@@ -1,22 +1,15 @@
-export const INCREMENT = "INCREMENT";
-export const DECREMENT = "DECREMENT";
+export const incrementCounter = (id, value) => ({
+  type: "INCREMENT_COUNTER",
+  payload: {
+    id,
+    value
+  }
+});
 
-export function incrementCounter(id, val) {
-  return {
-    type: INCREMENT,
-    payload: {
-      id,
-      value: val
-    }
-  };
-}
-
-export function decrementCounter(id, val) {
-  return {
-    type: DECREMENT,
-    payload: {
-      id,
-      value: val
-    }
-  };
-}
+export const decrementCounter = (id, value) => ({
+  type: "DECREMENT_COUNTER",
+  payload: {
+    id,
+    value
+  }
+});
